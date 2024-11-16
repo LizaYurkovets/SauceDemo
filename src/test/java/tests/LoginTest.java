@@ -2,14 +2,6 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
-
 import static org.testng.Assert.assertEquals;
 
 public class LoginTest extends BaseTest {
