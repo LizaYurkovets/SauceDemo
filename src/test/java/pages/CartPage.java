@@ -16,6 +16,10 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
+    public void open() {
+        driver.get(BASE_URL + "cart.html");
+    }
+
     private List<WebElement> getItems() {
         return driver.findElements(By.className("cart_item"));
     }

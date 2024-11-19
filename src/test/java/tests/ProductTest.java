@@ -23,6 +23,6 @@ public class ProductTest extends BaseTest {
         softAssert.assertEquals(productsPage.getMenuItemName(1), "About", "Название не совпадает");
         softAssert.assertEquals(productsPage.getMenuItemName(2), "Logout", "Название не совпадает");
         softAssert.assertEquals(productsPage.getMenuItemName(3), "Reset App State", "Название не совпадает");
+        softAssert.assertAll();
     }
-
 }

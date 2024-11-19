@@ -40,8 +40,6 @@ public class LoginTest extends BaseTest {
         assertEquals(loginPage.getError(), "Epic sadface: Username and password do not match any user in this service",
                 "Неверный текст или ошибка не получена");
     }
-
-
     /*@Test
     public void copy() throws IOException, UnsupportedFlavorException {
         String copyIntoBuffer = "TeachMeSkiils";
