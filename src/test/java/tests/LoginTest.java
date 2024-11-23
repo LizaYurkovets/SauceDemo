@@ -1,45 +1,50 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class LoginTest extends BaseTest {
 
-    @Test
-    public void loginTest() {
+    @Test (dataProvider = "loginData")
+    public void loginTest(String user, String password, String expectedResult) {
         loginPage.open(driver);
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
 
         assertEquals(productsPage.getTitle(),
-                "Products",
+                expectedResult,
                 "Переход на страницу не выполнен");
     }
 
-    @Test
-    public void checkEmptyUsernameTest() {
-        loginPage.open(driver);
-        loginPage.login("", "secret_sauce");
-        assertEquals(loginPage.getError(), "Epic sadface: Username is required",
-                "Неверный текст или ошибка не получена");
+    @DataProvider()
+    public Object[][] loginData() {
+        return new Object[][] {
+                {"standard_user", "secret_sauce", "Products"}
+        };
     }
 
-    @Test
-    public void checkEmptyPasswordTest() {
-        loginPage.open(driver);
-        loginPage.login("standard_user", "");
-        assertEquals(loginPage.getError(), "Epic sadface: Password is required",
-                "Неверный текст или ошибка не получена");
+    @DataProvider()
+    public Object[][] WrongLoginData() {
+        return new Object[][] {
+                {"", "secret_sauce", "Epic sadface: Username is required"},
+                {"standard_user", "", "Epic sadface: Password is required"},
+                {"standard_user", "test", "Epic sadface: Username and password do not match any user in this service"}
+        };
     }
 
-    @Test
-    public void checkWrongLoginDataTest() {
+    @Test (dataProvider = "WrongLoginData")
+    public void checkWrongLoginData(String user, String password, String expectedError) {
         loginPage.open(driver);
-        loginPage.login("standard_user", "test");
+        loginPage.login(user, password);
         driver.findElement(By.id("login-button")).click();
-        assertEquals(loginPage.getError(), "Epic sadface: Username and password do not match any user in this service",
+        assertEquals(loginPage.getError(), expectedError,
                 "Неверный текст или ошибка не получена");
     }
+}
+
+
+
     /*@Test
     public void copy() throws IOException, UnsupportedFlavorException {
         String copyIntoBuffer = "TeachMeSkiils";
@@ -50,4 +55,4 @@ public class LoginTest extends BaseTest {
 
         System.out.println(Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor));
     }*/
-}
+
