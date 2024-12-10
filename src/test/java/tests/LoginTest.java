@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -8,6 +10,8 @@ import static org.testng.Assert.assertEquals;
 public class LoginTest extends BaseTest {
 
     @Test (dataProvider = "loginData")
+    @Epic("Модуль логина интернет-магазина")
+    @Description("Проверка входа пользователя в систему с использованием корректных данных для входа")
     public void loginTest(String user, String password, String expectedResult) {
         loginPage.open(driver);
         loginPage.login(user, password);
@@ -34,6 +38,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test (dataProvider = "WrongLoginData")
+    @Description("Проверка входа пользователя в систему используя неверные креды")
     public void checkWrongLoginData(String user, String password, String expectedError) {
         loginPage.open(driver);
         loginPage.login(user, password);

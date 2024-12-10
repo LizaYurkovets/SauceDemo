@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,20 +19,24 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
+    @Step("Получаем заголовок страницы")
     public String getTitle() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE));
         return driver.findElement(TITLE).getText();
     }
 
+    @Step("Добавление товара с именем {product} в корзину")
     public void clickAddButton(String product) {
         By addToCart = By.xpath(String.format(ADD_TO_CART_PATTERN, product));
         driver.findElement(addToCart).click();
     }
 
+    @Step("Нажимаем на кнопку корзины")
     public void clickShoppingCart() {
         driver.findElement(CART_LINK).click();
     }
 
+    @Step("Нажатие на кнопку Меню")
     public void clickMenu() {
         driver.findElement(MENU).click();
     }
@@ -40,10 +45,12 @@ public class ProductsPage extends BasePage {
         return driver.findElements(By.className("menu-item"));
     }
 
+    @Step("Получение размера меню")
     public int getSizeMenu() {
         return getMenuItems().size();
     }
 
+    @Step("Получение названия элементов меню")
     public String getMenuItemName(int counter) {
         return getMenuItems().get(counter).getText();
     }

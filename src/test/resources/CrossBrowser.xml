@@ -2,7 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="3" name="Sauce Demo CrossBrowser" parallel="classes">
     <listeners>
-        <listener class-name="tests.AnnotationTransformer"/>
+        <listener class-name="tests.TestListener"></listener>
+        <listener class-name="tests.AnnotationTransformer"></listener>
     </listeners>
     <test name="Chrome#1">
         <classes>

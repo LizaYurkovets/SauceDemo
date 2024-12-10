@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -7,7 +8,8 @@ import static org.testng.Assert.assertEquals;
 
 public class ProductTest extends BaseTest {
 
-    @Test //проверяем количество пунктов в меню и их названия
+    @Test
+    @Description("Проверка количества пунктов в меню и их названия")
     public void checkMenuItems() {
         loginPage.open(driver);
         loginPage.login("standard_user", "secret_sauce");

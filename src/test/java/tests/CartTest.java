@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -10,6 +11,7 @@ import static org.testng.Assert.assertTrue;
 public class CartTest extends BaseTest{
 
     @Test
+    @Description("Добавление товара в корзину")
     public void checkCart() {
         loginPage.open(driver);
         loginPage.login("standard_user", "secret_sauce");
@@ -20,6 +22,7 @@ public class CartTest extends BaseTest{
     }
 
     @Test
+    @Description("Добавление нескольких товаров в корзину, проверка их наличия в корзине, удаление товаров из корзины и проверка пуста ли корзина")
     public void checkAddAndDeleteFewItems() {
         loginPage.open(driver);
         loginPage.login("standard_user", "secret_sauce");
@@ -37,7 +40,7 @@ public class CartTest extends BaseTest{
         softAssert.assertEquals(cartPage.getItemName(2), "Sauce Labs Fleece Jacket", "Товар не найден");
         softAssert.assertEquals(cartPage.getItemPrice(0), "$29.99", "Цена не совпадает");
         softAssert.assertEquals(cartPage.getItemPrice(1), "$15.99", "Цена не совпадает");
-        softAssert.assertEquals(cartPage.getItemPrice(2), "$49.99", "Цена не совпадает");
+        softAssert.assertEquals(cartPage.getItemPrice(2), "$49.9", "Цена не совпадает");
         //удаляем товары
         cartPage.removeItem("Sauce Labs Backpack");
         cartPage.removeItem("Sauce Labs Bolt T-Shirt");
@@ -47,6 +50,7 @@ public class CartTest extends BaseTest{
     }
 
     @Test
+    @Description("Проверка перехода на страницу Products из корзины")
     public void checkContinueShopping() {
         loginPage.open(driver);
         loginPage.login("standard_user", "secret_sauce");
@@ -56,6 +60,7 @@ public class CartTest extends BaseTest{
     }
 
     @Test
+    @Description("Проверка перехода в карточку товара из корзины")
     public void checkTransferToTheItemCardFromTheCart() {
         loginPage.open(driver);
         loginPage.login("standard_user", "secret_sauce");
@@ -69,7 +74,8 @@ public class CartTest extends BaseTest{
         softAssert.assertAll();
     }
 
-    @Test //провряем переход на страницу чекаута из корзины
+    @Test
+    @Description("Проверка перехода на страницу Checkout из корзины")
     public void checkCheckoutFromCart() {
         loginPage.open(driver);
         loginPage.login("standard_user", "secret_sauce");

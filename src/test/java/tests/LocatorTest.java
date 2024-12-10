@@ -1,11 +1,13 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class LocatorTest extends BaseTest {
 
     @Test
+    @Description("Проверка локаторов")
     public void locatorTest() {
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name"));
