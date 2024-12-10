@@ -8,6 +8,7 @@
     <test name="Thread#1">
         <classes>
             <class name="tests.LoginTest"/>
+            <parameter name="browser" value="chrome"></parameter>
         </classes>
     </test> <!-- Test -->
     <test name="Thread#2">
@@ -15,6 +16,7 @@
             <class name="tests.CartTest"/>
             <class name="tests.LocatorTest"/>
             <class name="tests.ProductTest"/>
+            <parameter name="browser" value="chrome"></parameter>
         </classes>
 
     </test> <!-- Test -->

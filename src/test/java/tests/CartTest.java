@@ -40,7 +40,7 @@ public class CartTest extends BaseTest{
         softAssert.assertEquals(cartPage.getItemName(2), "Sauce Labs Fleece Jacket", "Товар не найден");
         softAssert.assertEquals(cartPage.getItemPrice(0), "$29.99", "Цена не совпадает");
         softAssert.assertEquals(cartPage.getItemPrice(1), "$15.99", "Цена не совпадает");
-        softAssert.assertEquals(cartPage.getItemPrice(2), "$49.9", "Цена не совпадает");
+        softAssert.assertEquals(cartPage.getItemPrice(2), "$49.99", "Цена не совпадает");
         //удаляем товары
         cartPage.removeItem("Sauce Labs Backpack");
         cartPage.removeItem("Sauce Labs Bolt T-Shirt");
