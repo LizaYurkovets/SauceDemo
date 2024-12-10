@@ -38,6 +38,7 @@ public class BaseTest {
             driver = new EdgeDriver();
             EdgeOptions options = new EdgeOptions();
             options.addArguments("headless");
+            options.addArguments("start-maximized");
         } else if (browser.equalsIgnoreCase("firefox")) {
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("headless");
