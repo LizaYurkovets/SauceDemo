@@ -14,6 +14,7 @@ import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
 import utils.AllureUtils;
+import utils.PropertyReader;
 
 import java.time.Duration;
 
@@ -24,6 +25,9 @@ public class BaseTest {
     LoginPage loginPage;
     ProductsPage productsPage;
     CartPage cartPage;
+
+    String user = System.getProperty("user", PropertyReader.getProperty("user"));
+    String password = System.getProperty("password", PropertyReader.getProperty("password"));
 
     @Parameters({"browser"})
     @BeforeMethod

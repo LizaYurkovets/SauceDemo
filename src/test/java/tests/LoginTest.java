@@ -12,21 +12,21 @@ public class LoginTest extends BaseTest {
     @Test (dataProvider = "loginData")
     @Epic("Модуль логина интернет-магазина")
     @Description("Проверка входа пользователя в систему с использованием корректных данных для входа")
-    public void loginTest(String user, String password, String expectedResult) {
+    public void loginTest() {
         loginPage.open(driver);
         loginPage.login(user, password);
 
         assertEquals(productsPage.getTitle(),
-                expectedResult,
+                "Products",
                 "Переход на страницу не выполнен");
     }
 
-    @DataProvider()
+/*    @DataProvider()
     public Object[][] loginData() {
         return new Object[][] {
                 {"standard_user", "secret_sauce", "Products"}
         };
-    }
+    }*/
 
     @DataProvider()
     public Object[][] WrongLoginData() {
