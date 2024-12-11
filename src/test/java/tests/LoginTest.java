@@ -9,7 +9,7 @@ import static org.testng.Assert.assertEquals;
 
 public class LoginTest extends BaseTest {
 
-    @Test (dataProvider = "loginData")
+    @Test/* (dataProvider = "loginData")*/
     @Epic("Модуль логина интернет-магазина")
     @Description("Проверка входа пользователя в систему с использованием корректных данных для входа")
     public void loginTest() {
@@ -21,12 +21,12 @@ public class LoginTest extends BaseTest {
                 "Переход на страницу не выполнен");
     }
 
-/*    @DataProvider()
+    @DataProvider()
     public Object[][] loginData() {
         return new Object[][] {
                 {"standard_user", "secret_sauce", "Products"}
         };
-    }*/
+    }
 
     @DataProvider()
     public Object[][] WrongLoginData() {
