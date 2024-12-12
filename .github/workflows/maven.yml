@@ -39,8 +39,8 @@ jobs:
         version: latest
 
     - name: Run tests
-      run: mvn clean test -Duser=$USERNAME -Dpassword=$PASSWORD
-           mvn clean test -DwrongUser=$WRONG_USERE -DwrongPassword=$WRONG_PASSWORD
+      run: mvn clean test -Duser=$USERNAME -Dpassword=$PASSWORD -DwrongUser=$USERNAME_WRONG -DwrongPassword=$WRONG_PASSWORD
+
 
 
 
