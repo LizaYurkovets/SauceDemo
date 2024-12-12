@@ -1,12 +1,14 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+@Log4j2
 public class CartPage extends BasePage {
 
     private final By CHECKOUT_ID = By.id("checkout");
@@ -50,6 +52,7 @@ public class CartPage extends BasePage {
 
     @Step("Удаление товара из корзины")
     public void removeItem(String name) {
+        log.info("Delete items from the cart");
         for (WebElement item : getItems()) {
             var itemName = item.findElement(By.className("inventory_item_name")).getText();
             if (itemName.equals(name)) {
@@ -61,6 +64,7 @@ public class CartPage extends BasePage {
 
     @Step("Проверка пустая корзина или нет")
     public boolean checkIfEmpty() {
+        log.info("Check if the cart empty");
         return getAmountOfItems() == 0;
     }
 }

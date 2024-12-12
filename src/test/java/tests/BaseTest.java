@@ -28,6 +28,8 @@ public class BaseTest {
 
     String user = System.getProperty("user", PropertyReader.getProperty("user"));
     String password = System.getProperty("password", PropertyReader.getProperty("password"));
+    String wrongUser = System.getProperty("wrongUser", PropertyReader.getProperty("wrongUser"));
+    String wrongPassword = System.getProperty("wrongPassword", PropertyReader.getProperty("wrongPassword"));
 
     @Parameters({"browser"})
     @BeforeMethod

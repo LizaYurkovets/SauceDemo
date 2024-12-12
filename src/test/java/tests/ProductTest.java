@@ -12,7 +12,7 @@ public class ProductTest extends BaseTest {
     @Description("Проверка количества пунктов в меню и их названия")
     public void checkMenuItems() {
         loginPage.open(driver);
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
 
         assertEquals(productsPage.getTitle(),
                 "Products",
@@ -25,6 +25,6 @@ public class ProductTest extends BaseTest {
         softAssert.assertEquals(productsPage.getMenuItemName(1), "About", "Название не совпадает");
         softAssert.assertEquals(productsPage.getMenuItemName(2), "Logout", "Название не совпадает");
         softAssert.assertEquals(productsPage.getMenuItemName(3), "Reset App State", "Название не совпадает");
-        //softAssert.assertAll();
+        softAssert.assertAll();
     }
 }

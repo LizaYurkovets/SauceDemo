@@ -25,7 +25,7 @@ public class CartTest extends BaseTest{
     @Description("Добавление нескольких товаров в корзину, проверка их наличия в корзине, удаление товаров из корзины и проверка пуста ли корзина")
     public void checkAddAndDeleteFewItems() {
         loginPage.open(driver);
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         //добавляем несколько товаров в корзину
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickAddButton("Sauce Labs Bolt T-Shirt");
@@ -53,7 +53,7 @@ public class CartTest extends BaseTest{
     @Description("Проверка перехода на страницу Products из корзины")
     public void checkContinueShopping() {
         loginPage.open(driver);
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.clickShoppingCart();
         cartPage.clickContinueShoppingButton();
         assertEquals(productsPage.getTitle(), "Products", "Страница не найдена");
@@ -63,7 +63,7 @@ public class CartTest extends BaseTest{
     @Description("Проверка перехода в карточку товара из корзины")
     public void checkTransferToTheItemCardFromTheCart() {
         loginPage.open(driver);
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
         SoftAssert softAssert = new SoftAssert();
@@ -78,7 +78,7 @@ public class CartTest extends BaseTest{
     @Description("Проверка перехода на страницу Checkout из корзины")
     public void checkCheckoutFromCart() {
         loginPage.open(driver);
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
         SoftAssert softAssert = new SoftAssert();

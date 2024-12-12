@@ -17,6 +17,8 @@ on:
 env:
   USERNAME: ${{secrets.SD_USER}}
   PASSWORD: ${{secrets.SD_PASSWORD}}
+  USERNAME_WRONG: ${{secrets.WRONG_USER}}
+  PASSWORD_WRONG: ${{secrets.WRONG_PASSWORD}}
 
 jobs:
   build:

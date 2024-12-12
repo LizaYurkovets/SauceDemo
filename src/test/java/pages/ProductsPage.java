@@ -1,6 +1,7 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
+@Log4j2
 public class ProductsPage extends BasePage {
 
     private final By TITLE = By.cssSelector(".title");
@@ -27,6 +29,7 @@ public class ProductsPage extends BasePage {
 
     @Step("Добавление товара с именем {product} в корзину")
     public void clickAddButton(String product) {
+        log.info("Add items to the cart");
         By addToCart = By.xpath(String.format(ADD_TO_CART_PATTERN, product));
         driver.findElement(addToCart).click();
     }
@@ -47,11 +50,13 @@ public class ProductsPage extends BasePage {
 
     @Step("Получение размера меню")
     public int getSizeMenu() {
+        log.info("Receive menu size");
         return getMenuItems().size();
     }
 
     @Step("Получение названия элементов меню")
     public String getMenuItemName(int counter) {
+        log.info("Receive menu items name");
         return getMenuItems().get(counter).getText();
     }
 

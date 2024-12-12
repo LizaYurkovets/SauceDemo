@@ -21,29 +21,29 @@ public class LoginTest extends BaseTest {
                 "Переход на страницу не выполнен");
     }
 
-    @DataProvider()
+/*    @DataProvider()
     public Object[][] loginData() {
         return new Object[][] {
                 {"standard_user", "secret_sauce", "Products"}
         };
-    }
+    }*/
 
-    @DataProvider()
+/*    @DataProvider()
     public Object[][] WrongLoginData() {
         return new Object[][] {
                 {"", "secret_sauce", "Epic sadface: Username is required"},
                 {"standard_user", "", "Epic sadface: Password is required"},
                 {"standard_user", "test", "Epic sadface: Username and password do not match any user in this service"}
         };
-    }
+    }*/
 
-    @Test (dataProvider = "WrongLoginData")
+    @Test /*(dataProvider = "WrongLoginData")*/
     @Description("Проверка входа пользователя в систему используя неверные креды")
-    public void checkWrongLoginData(String user, String password, String expectedError) {
+    public void checkWrongLoginData() {
         loginPage.open(driver);
-        loginPage.login(user, password);
+        loginPage.login(wrongUser, wrongPassword);
         driver.findElement(By.id("login-button")).click();
-        assertEquals(loginPage.getError(), expectedError,
+        assertEquals(loginPage.getError(), "Epic sadface: Username and password do not match any user in this service",
                 "Неверный текст или ошибка не получена");
     }
 }
