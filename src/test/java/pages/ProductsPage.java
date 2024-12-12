@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 @Log4j2
@@ -57,6 +59,8 @@ public class ProductsPage extends BasePage {
     @Step("Получение названия элементов меню")
     public String getMenuItemName(int counter) {
         log.info("Receive menu items name");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("menu-item")));
         return getMenuItems().get(counter).getText();
     }
 
