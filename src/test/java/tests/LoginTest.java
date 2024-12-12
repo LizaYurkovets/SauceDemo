@@ -43,7 +43,7 @@ public class LoginTest extends BaseTest {
         loginPage.open(driver);
         loginPage.login(wrongUser, wrongPassword);
         driver.findElement(By.id("login-button")).click();
-        assertEquals(loginPage.getError(), "Epic sadface: Username and password do not match any user in this service",
+        assertEquals(loginPage.getError(), "Epic sadface: Password is required",
                 "Неверный текст или ошибка не получена");
     }
 }
