@@ -33,6 +33,7 @@ public class LoginPage extends BasePage {
 
     @Step("Получение сообщения об ошибке")
     public String getError() {
+        log.info("Receive error message");
         return driver.findElement(ERROR_MESSAGE).getText();
     }
 

@@ -37,16 +37,19 @@ public class CartPage extends BasePage {
 
     @Step("Получение количества товаров в корзине")
     public int getAmountOfItems() {
+        log.info("Receive amount of items in the cart");
         return getItems().size();
     }
 
     @Step("Получение товаров по имени")
     public String getItemName(int counter) {
+        log.info("Receive item name");
         return getItems().get(counter).findElement(By.className("inventory_item_name")).getText();
     }
 
     @Step("Получение товаров по стоимости")
     public String getItemPrice(int counter) {
+        log.info("Receive item price");
         return getItems().get(counter).findElement(By.className("inventory_item_price")).getText();
     }
 
